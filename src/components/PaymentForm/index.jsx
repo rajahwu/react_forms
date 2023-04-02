@@ -1,6 +1,17 @@
+import { useState } from "react";
 import "./PaymentForm.css";
 
 export default function PaymentForm() {
+  // * Contact Information
+  const [title, setTitle] = useState("J");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  //  * Payment Information
+  const [creditCard, setCreditCard] = useState("visa");
+  const [creditCardNumber, setCreditCardNumber] = useState("");
+  const [expiration, setExpiration] = useState("");
+
   return (
     <form className="payment-form">
       <h1>Payment form</h1>
@@ -17,19 +28,40 @@ export default function PaymentForm() {
           <ul>
             <li>
               <label htmlFor="title_1">
-                <input type="radio" id="title_1" name="title" value="K" />
+                <input
+                  type="radio"
+                  id="title_1"
+                  name="title"
+                  value="K"
+                  onChange={(e) => setTitle(e.target.value)}
+                  checked={title === "K"}
+                />
                 King
               </label>
             </li>
             <li>
               <label htmlFor="title_2">
-                <input type="radio" id="title_2" name="title" value="Q" />
+                <input
+                  type="radio"
+                  id="title_2"
+                  name="title"
+                  value="Q"
+                  onChange={(e) => setTitle(e.target.value)}
+                  checked={title === "Q"}
+                />
                 Queen
               </label>
             </li>
             <li>
               <label htmlFor="title_3">
-                <input type="radio" id="title_3" name="title" value="J" />
+                <input
+                  type="radio"
+                  id="title_3"
+                  name="title"
+                  value="J"
+                  onChange={(e) => setTitle(e.target.value)}
+                  checked={title === "J"}
+                />
                 Joker
               </label>
             </li>
@@ -42,7 +74,13 @@ export default function PaymentForm() {
               <span aria-label="required">*</span>
             </strong>
           </label>
-          <input type="text" name="username" id="name" />
+          <input
+            type="text"
+            name="username"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </p>
         <p>
           <label htmlFor="mail">
@@ -51,7 +89,13 @@ export default function PaymentForm() {
               <span aria-label="required">*</span>
             </strong>
           </label>
-          <input type="email" name="useremail" id="mail" />
+          <input
+            type="email"
+            name="useremail"
+            id="mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </p>
         <p>
           <label htmlFor="pwd">
@@ -60,7 +104,13 @@ export default function PaymentForm() {
               <span aria-label="required">*</span>
             </strong>
           </label>
-          <input type="password" name="password" id="pwd" />
+          <input
+            type="password"
+            name="password"
+            id="pwd"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </p>
       </section>
       <section>
@@ -69,7 +119,12 @@ export default function PaymentForm() {
           <label htmlFor="card">
             <span>Card type:</span>
           </label>
-          <select name="usercard" id="card">
+          <select
+            name="usercard"
+            id="card"
+            value={creditCard}
+            onChange={(e) => setCreditCard(e.target.value)}
+          >
             <option value="visa">Visa</option>
             <option value="mc">Mastercard</option>
             <option value="amex">American Express</option>
@@ -82,7 +137,13 @@ export default function PaymentForm() {
               <span aria-label="required">*</span>
             </strong>
           </label>
-          <input type="tel" name="cardnumber" id="number" />
+          <input
+            type="tel"
+            name="cardnumber"
+            id="number"
+            value={creditCardNumber}
+            onChange={(e) => setCreditCardNumber(e.target.value)}
+          />
         </p>
         <p>
           <label htmlFor="expiration">
@@ -97,6 +158,8 @@ export default function PaymentForm() {
             id="expiration"
             placeholder="MM/YY"
             pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$"
+            value={expiration}
+            onChange={(e) => setExpiration(e.target.value)}
           />
         </p>
       </section>
