@@ -1,11 +1,15 @@
-import { PageRoutes } from "./components";
+import { Footer, PageTitle } from "./components";
+import PageRouter from "./routes/SiteRouter";
 import "./App.css";
 
 function App() {
+
+  
   return (
     <div className="App">
-      <h2>React Forms</h2>
-      <PageRoutes />
+      <PageTitle title="React Forms" />
+      <PageRouter />
+      <Footer />
     </div>
   );
 }
